@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  php:
+    image: php:7.3-cli
+    environment:
+      APP_ENV: ${ENV}
+      APP_DEBUG: ${DEBUG}
+      APP_PHUMBOR_SECRET: ${SECRET}
+      APP_PHUMBOR_HOST: ${HOST}
+    working_dir: /var/www/symfony
+    volumes:
+      - ./app:/var/www/symfony
+
+  composer:
+    image: composer:latest
+    environment:
+      COMPOSER_HOME: /composer
+    working_dir: /var/www/symfony
+    volumes:
+      - ./app:/var/www/symfony
+      - .composer:/composer

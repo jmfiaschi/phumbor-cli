@@ -1,0 +1,9 @@
+jb_phumbor:
+  server:
+    url: '%env(APP_PHUMBOR_HOST)%'
+    secret: '%env(APP_PHUMBOR_SECRET)%'
+  transformations:
+    default:
+      resize:
+        width: 360
+        height: 500

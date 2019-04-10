@@ -62,7 +62,7 @@ class ImageBuilderCommand extends Command implements LoggerAwareInterface
      * @param InputInterface  $input
      * @param OutputInterface $output
      *
-     * @return int|void|null
+     * @return int|null
      *
      * @throws \Jb\Bundle\PhumborBundle\Transformer\Exception\UnknownTransformationException
      */
@@ -71,5 +71,7 @@ class ImageBuilderCommand extends Command implements LoggerAwareInterface
         $output->writeln(
             $this->baseTransformer->transform($input->getArgument('image'), $input->getOption('transformation'))
         );
+
+        return 0;
     }
 }

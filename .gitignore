@@ -1,8 +1,8 @@
 
 ###> composer ###
-.composer/
+/.composer/
 ###< composer ###
 
 ###> phpstorm ###
-.idea/
+/.idea/
 ###< phpstorm ###

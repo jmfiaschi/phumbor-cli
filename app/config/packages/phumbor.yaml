@@ -1,3 +1,5 @@
+---
+# See some example to configure this file : https://github.com/jbouzekri/PhumborBundle/blob/master/Resources/doc/reference.md
 jb_phumbor:
   server:
     url: '%env(APP_PHUMBOR_HOST)%'

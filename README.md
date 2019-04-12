@@ -20,7 +20,7 @@ $ docker-compose run --rm php bin/console
 
 Generate an url with an image name:
 ```
-$ docker-compose run --rm php bin/console
+$ docker-compose run --rm php bin/console phumbor-cli:image:get-url test
 ```
 
 Warmup an image:

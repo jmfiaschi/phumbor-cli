@@ -13,14 +13,14 @@ Custom your own transformers with this file : app/config/packages/phumbor.yaml
 
 ## How to use
 
-To see all symfony's commands:
-```
-$ docker-compose run --rm php bin/console
-```
-
-Generate an url with an image name:
+Generate an signed url with an image name:
 ```
 $ docker-compose run --rm php bin/console phumbor-cli:image:get-url test
+```
+
+Generate a list of url with a url file and some transformers:
+```
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && docker-compose run --rm php bin/console phumbor-cli:images:get-url $input -vvv --transformations={t1,t2}
 ```
 
 Warmup an image:
@@ -28,7 +28,7 @@ Warmup an image:
 $ docker-compose run --rm php bin/console phumbor-cli:image:get-url test -t default | xargs wget
 ```
 
-Warmup a list of images: (todo)
+Warmup a list of images:
 ```
-$ docker-compose run --rm php bin/console phumbor-cli:images:get-url images | wget -i -
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && docker-compose run --rm php bin/console phumbor-cli:images:get-url $input -vvv --transformations={t1,t2} | wget -i -
 ```

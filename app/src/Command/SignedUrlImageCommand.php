@@ -13,9 +13,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Command to generate url image
+ * Command to generate signed url image.
  */
-class ImageBuilderCommand extends Command implements LoggerAwareInterface
+class SignedUrlImageCommand extends Command implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 

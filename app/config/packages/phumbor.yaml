@@ -9,3 +9,11 @@ jb_phumbor:
       resize:
         width: 360
         height: 500
+    t1:
+      resize:
+        width: 800
+        height: 600
+    t2:
+      resize:
+        width: 1024
+        height: 800

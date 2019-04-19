@@ -4,18 +4,20 @@ Little tools in order to forge thumbor url on the fly.
 
 ## How to install
 
-Load all dependancies:
+Load all dependencies:
 ```
 $ docker-compose run --rm composer install --prefer-dist --no-interaction --ignore-platform-reqs --optimize-autoloader -vvv --no-scripts
 ```
 
-Custom your own transformers with this file : app/config/packages/phumbor.yaml
+Change all config files:
+* app/config/packages/phumbor.yaml : Custom some transformers.
+* .env : config to acces of your thumbor.
 
 ## How to use
 
 Generate an signed url with an image name:
 ```
-$ docker-compose run --rm php bin/console phumbor-cli:image:get-url test
+$ docker-compose run --rm php bin/console phumbor-cli:image:get-url [THUMBOR_HASH] --transformation=default
 ```
 
 Generate a list of url with a url file and some transformers:
@@ -25,7 +27,7 @@ $ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && dock
 
 Warmup an image:
 ```
-$ docker-compose run --rm php bin/console phumbor-cli:image:get-url test -t default | xargs wget
+$ docker-compose run --rm php bin/console phumbor-cli:image:get-url [THUMBOR_HASH] -t default | xargs wget
 ```
 
 Warmup a list of images:

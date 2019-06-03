@@ -9,7 +9,7 @@ services:
       APP_PHUMBOR_HOST: ${HOST}
     working_dir: /var/www/symfony
     volumes:
-      - ./app:/var/www/symfony
+      - .:/var/www/symfony:delegated
 
   composer:
     image: composer:latest
@@ -17,5 +17,4 @@ services:
       COMPOSER_HOME: /composer
     working_dir: /var/www/symfony
     volumes:
-      - ./app:/var/www/symfony
-      - .composer:/composer
+      - .:/var/www/symfony:delegated

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
@@ -16,10 +16,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Command to generate signed image urls and specific transformers.
  */
-class SignedUrlImagesCommand extends Command implements LoggerAwareInterface
+final class SignedUrlImagesCommand extends Command implements LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
+    /**
+     * @var string
+     */
     protected static $defaultName = 'phumbor-cli:images:get-url';
 
     /**
@@ -27,9 +30,6 @@ class SignedUrlImagesCommand extends Command implements LoggerAwareInterface
      */
     protected $baseTransformer;
 
-    /**
-     * @param BaseTransformer $baseTransformer
-     */
     public function __construct(BaseTransformer $baseTransformer)
     {
         $this->baseTransformer = $baseTransformer;
@@ -38,10 +38,7 @@ class SignedUrlImagesCommand extends Command implements LoggerAwareInterface
         parent::__construct();
     }
 
-    /**
-     * @return void
-     */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             // the short description shown while running "php bin/console list"
@@ -63,14 +60,6 @@ class SignedUrlImagesCommand extends Command implements LoggerAwareInterface
             );
     }
 
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
-     * @return int|null
-     *
-     * @throws \Exception
-     */
     protected function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $signedUrlImageCommand = $this->getApplication()->find('phumbor-cli:image:get-url');

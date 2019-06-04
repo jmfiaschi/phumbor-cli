@@ -25,9 +25,9 @@ class SignedUrlImagesCommandTest extends KernelTestCase
         );
 
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('/unsafe/800x600/image1', $output);
-        $this->assertStringContainsString('/unsafe/800x600/image2', $output);
-        $this->assertStringContainsString('/unsafe/1024x800/image1', $output);
-        $this->assertStringContainsString('/unsafe/1024x800/image2', $output);
+        $this->assertStringContainsString('/800x600/image1', $output);
+        $this->assertStringContainsString('/800x600/image2', $output);
+        $this->assertStringContainsString('/1024x800/image1', $output);
+        $this->assertStringContainsString('/1024x800/image2', $output);
     }
 }

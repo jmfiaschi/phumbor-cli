@@ -25,6 +25,6 @@ class SignedUrlImageCommandTest extends KernelTestCase
         );
 
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('/unsafe/360x500/image', $output);
+        $this->assertStringContainsString('/360x500/image', $output);
     }
 }

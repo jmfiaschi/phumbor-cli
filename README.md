@@ -11,7 +11,7 @@ $ make test
 
 Change all config files:
 * app/config/packages/phumbor.yaml : Custom some transformers.
-* .env : config to acces of your thumbor.
+* .env.dist : Rename .env.dist into .env and config it.
 
 ## How to use
 

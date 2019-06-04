@@ -1,7 +1,7 @@
 -include .env
 
 .SILENT:
-.PHONY: coverage cs it test up
+.PHONY: coverage cs it test up get-url get-urls warmup
 
 help: ## Display all commands
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
@@ -23,3 +23,13 @@ cs: ## Launch CS fixer.
 
 update: ## Update the project
 	docker-compose run --rm composer update
+
+get-url: ## Get forged url : $ make get-url IMAGE=image TRANSFORMATION=default
+	docker-compose run --rm php bin/console phumbor-cli:image:get-url $(IMAGE) --transformation=$(TRANSFORMATION)
+
+get-urls: ## Get forged urls: $ make get-urls IMAGES='image1 image2' TRANSFORMATIONS='{t1,t2}'
+	docker-compose run --rm php bin/console phumbor-cli:images:get-url $(IMAGES) --transformations=$(TRANSFORMATIONS)
+
+warmup: ## Warmup thumbor url: $ make warmup IMAGES='image1 image2' TRANSFORMATIONS='{t1,t2}'
+warmup: get-urls
+	@wget -i $^

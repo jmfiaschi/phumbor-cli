@@ -17,20 +17,15 @@ Change all config files:
 
 Generate an signed url with an image name:
 ```
-$ docker-compose run --rm php bin/console phumbor-cli:image:get-url [THUMBOR_HASH] --transformation=default
+$ make get-url IMAGE=image TRANSFORMATION=default
 ```
 
 Generate a list of url with a url file and some transformers:
 ```
-$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && docker-compose run --rm php bin/console phumbor-cli:images:get-url $input -vvv --transformations={t1,t2}
-```
-
-Warmup an image:
-```
-$ docker-compose run --rm php bin/console phumbor-cli:image:get-url [THUMBOR_HASH] -t default | xargs wget
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make get-urls IMAGES="${input}" TRANSFORMATIONS='{t1,t2}'
 ```
 
 Warmup a list of images:
 ```
-$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && docker-compose run --rm php bin/console phumbor-cli:images:get-url $input -vvv --transformations={t1,t2} | wget -i -
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make warmup IMAGES="${input}" TRANSFORMATIONS='{t1,t2}'
 ```

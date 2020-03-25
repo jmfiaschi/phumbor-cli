@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   php:
-    image: php:7.3-cli
+    image: php:7.4-cli
     environment:
       APP_ENV: ${ENV}
       APP_DEBUG: ${DEBUG}

@@ -27,8 +27,8 @@ update: ## Update the project
 get-url: ## Get forged url : $ make get-url IMAGE=image TRANSFORMATION=default
 	docker-compose run --rm php bin/console phumbor-cli:image:get-url $(IMAGE) --transformation=$(TRANSFORMATION)
 
-get-urls: ## Get forged urls: $ make get-urls IMAGES='image1 image2' TRANSFORMATIONS='{t1,t2}'
-	docker-compose run --rm php bin/console phumbor-cli:images:get-url $(IMAGES) --transformations=$(TRANSFORMATIONS)
+get-urls: ## Get forged urls: $ make get-urls IMAGES='image1 image2' TRANSFORMATIONS='--transformations=t1 --transformations=t2'
+	docker-compose run --rm php bin/console phumbor-cli:images:get-url $(IMAGES) $(TRANSFORMATIONS)
 
-warmup: ## Warmup thumbor url: $ make warmup IMAGES='image1 image2' TRANSFORMATIONS='{t1,t2}'
-	docker-compose run --rm php bin/console phumbor-cli:images:get-url $(IMAGES) --transformations=$(TRANSFORMATIONS) | wget -i -
+warmup: ## Warmup thumbor url: $ make warmup IMAGES='image1 image2' TRANSFORMATIONS='--transformations=t1 --transformations=t2'
+	docker-compose run --rm php bin/console phumbor-cli:images:get-url $(IMAGES) $(TRANSFORMATIONS) | wget -i -

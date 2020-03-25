@@ -2,13 +2,13 @@
     "type": "phumbor-cli",
     "license": "MIT",
     "require": {
-        "php": "^7.1.3",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "jbouzekri/phumbor-bundle": "^1.2",
+        "jbouzekri/phumbor-bundle": "^2.1",
         "symfony/console": "4.2.*",
         "symfony/dotenv": "4.2.*",
-        "symfony/flex": "^1.1",
+        "symfony/flex": "^1.6",
         "symfony/framework-bundle": "4.2.*",
         "symfony/yaml": "4.2.*"
     },
@@ -39,7 +39,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -58,7 +59,7 @@
         }
     },
     "require-dev": {
-        "nunomaduro/phpinsights": "^1.5",
+        "nunomaduro/phpinsights": "^1.14",
         "phpunit/phpunit": "^8.1"
     }
 }

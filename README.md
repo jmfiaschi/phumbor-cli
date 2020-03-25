@@ -22,10 +22,10 @@ $ make get-url IMAGE=image TRANSFORMATION=default
 
 Generate a list of url with a url file and some transformers:
 ```
-$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make get-urls IMAGES="${input}" TRANSFORMATIONS='{t1,t2}'
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make get-urls IMAGES="${input}" TRANSFORMATIONS='--transformations=t1 --transformations=t2'
 ```
 
 Warmup a list of images:
 ```
-$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make warmup IMAGES="${input}" TRANSFORMATIONS='{t1,t2}'
+$ input=($(awk -F/ '{ printf "%s ", $0 } END {print ""}' data/urls.txt)) && make warmup IMAGES="${input}" TRANSFORMATIONS='--transformations=t1 --transformations=t2'
 ```

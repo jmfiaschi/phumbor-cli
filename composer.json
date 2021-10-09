@@ -2,15 +2,14 @@
     "type": "phumbor-cli",
     "license": "MIT",
     "require": {
-        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "jbouzekri/phumbor-bundle": "^2.1",
-        "symfony/console": "4.2.*",
-        "symfony/dotenv": "4.2.*",
-        "symfony/flex": "^1.6",
-        "symfony/framework-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "jbouzekri/phumbor-bundle": "^2.2",
+        "symfony/console": "5.3.*",
+        "symfony/dotenv": "5.3.*",
+        "symfony/flex": "^1.16",
+        "symfony/framework-bundle": "5.3.*",
+        "symfony/yaml": "5.3.*"
     },
     "config": {
         "preferred-install": {
@@ -40,7 +39,7 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "security-checker security:check": "script"
+            "vendor/bin/phpunit --cache-result-file=var/cache/.phpunit.result": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -55,11 +54,13 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.2.*"
+            "require": "5.3.*"
         }
     },
     "require-dev": {
-        "nunomaduro/phpinsights": "^1.14",
-        "phpunit/phpunit": "^8.1"
+        "nunomaduro/phpinsights": "^2.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/phpunit-bridge": "^5.3",
+        "symplify/easy-coding-standard": "^9.3"
     }
 }

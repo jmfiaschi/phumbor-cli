@@ -1,20 +1,17 @@
 version: '3.7'
 services:
   php:
-    image: php:7.4-cli
-    environment:
-      APP_ENV: ${ENV}
-      APP_DEBUG: ${DEBUG}
-      APP_PHUMBOR_SECRET: ${SECRET}
-      APP_PHUMBOR_HOST: ${HOST}
+    image: php:latest
+    env_file:
+      - .env
     working_dir: /var/www/symfony
     volumes:
       - .:/var/www/symfony:delegated
 
   composer:
     image: composer:latest
-    environment:
-      COMPOSER_HOME: /composer
+    env_file:
+      - .env
     working_dir: /var/www/symfony
     volumes:
       - .:/var/www/symfony:delegated

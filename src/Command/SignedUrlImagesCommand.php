@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -33,7 +35,7 @@ final class SignedUrlImagesCommand extends Command implements LoggerAwareInterfa
     public function __construct(BaseTransformer $baseTransformer)
     {
         $this->baseTransformer = $baseTransformer;
-        $this->logger          = new NullLogger();
+        $this->logger = new NullLogger();
 
         parent::__construct();
     }
@@ -68,8 +70,8 @@ final class SignedUrlImagesCommand extends Command implements LoggerAwareInterfa
             foreach ($input->getOption('transformations') as $transformation) {
                 $signedUrlImageInput = new ArrayInput(
                     [
-                        'command'          => 'phumbor-cli:image:get-url',
-                        'image'            => $image,
+                        'command' => 'phumbor-cli:image:get-url',
+                        'image' => $image,
                         '--transformation' => $transformation,
                     ]
                 );

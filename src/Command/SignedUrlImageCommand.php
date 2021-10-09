@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Command;
 
@@ -32,7 +34,7 @@ final class SignedUrlImageCommand extends Command implements LoggerAwareInterfac
     public function __construct(BaseTransformer $baseTransformer)
     {
         $this->baseTransformer = $baseTransformer;
-        $this->logger          = new NullLogger();
+        $this->logger = new NullLogger();
 
         parent::__construct();
     }

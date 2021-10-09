@@ -18,6 +18,9 @@ test: ## Test code
 clear: ## Clear the cache
 	docker-compose run --rm php bin/console c:c
 
+clean:
+	rm -Rf vendor var
+
 cs: ## Launch CS fixer.
 	docker-compose run --rm php vendor/bin/ecs check --fix src
 
